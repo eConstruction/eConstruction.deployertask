@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: econstruction-auth-pod
+  labels:
+    app: econstruction-auth
+spec:
+  containers:
+    - name: econstruction-auth
+      image: 127041487502.dkr.ecr.us-east-1.amazonaws.com/econstruction-auth:latest
+      ports:
+        - containerPort: 6060

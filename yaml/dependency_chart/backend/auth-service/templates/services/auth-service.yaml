@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: econstruction-service-auth
+  labels:
+    app: econstruction-service-auth
+spec:
+  type: ClusterIP   # Default type, only accessible within the cluster
+  ports:
+    - port: 6060
+      targetPort: 6060
+      protocol: TCP
+  selector:
+    app: econstruction-service-auth

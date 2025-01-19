@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: econstruction-service-auth
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: econstruction-service-auth
+  template:
+    metadata:
+      labels:
+        app: econstruction-service-auth
+    spec:
+      containers:
+        - name: econstruction-service-auth
+          image: 127041487502.dkr.ecr.us-east-1.amazonaws.com/econstruction-auth:latest
+          ports:
+            - containerPort: 6060
