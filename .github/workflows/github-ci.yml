@@ -25,8 +25,6 @@ jobs:
 
     - name: Update Kubernetes Docker registry secret
       run: |
-        kubectl delete secret --ignore-not-found=true aws-ecr-cred
-        kubectl create secret docker-registry aws-ecr-cred \
-          --docker-server=${{ secrets.DOCKER_SERVER_URL }} \
-          --docker-username=AWS \
-          --docker-password=$(aws ecr get-login-password --region ${{ secrets.AWS_REGION }})
+        kubectl delete secret --ignore-not-found=true eks-secrets
+        kubectl create secret generic eks-secrets \
+          --from-literal=eksurl=${{ secrets.DOCKER_SERVER_URL }}
