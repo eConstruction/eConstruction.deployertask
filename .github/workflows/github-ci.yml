@@ -23,10 +23,6 @@ jobs:
       run: |
         aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
 
-    - name: Test Kubernetes Connection
-      run: |
-        kubectl get nodes
-
     - name: Update Kubernetes Docker registry secret
       run: |
         kubectl delete secret --ignore-not-found=true aws-ecr-cred
