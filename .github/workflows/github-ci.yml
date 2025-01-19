@@ -21,7 +21,7 @@ jobs:
 
     - name: Set up Kubeconfig
       run: |
-        aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.EKS_REGION }}
+        aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
 
     - name: Update Kubernetes Docker registry secret
       run: |
