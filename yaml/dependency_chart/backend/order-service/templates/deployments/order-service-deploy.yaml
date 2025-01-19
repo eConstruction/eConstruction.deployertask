@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: econstruction-order
+  labels:
+    app: econstruction-order
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: econstruction-order
+  template:
+    metadata:
+      labels:
+        app: econstruction-order
+    spec:
+      containers:
+        - name: econstruction-order
+          image: 127041487502.dkr.ecr.us-east-1.amazonaws.com/econstruction-order:latest
+          ports:
+            - containerPort: 5050
+          env:
+            - name: ASPNETCORE_URLS
+              value: 'http://+:5050'

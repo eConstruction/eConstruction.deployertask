@@ -17,3 +17,6 @@ spec:
           image: 127041487502.dkr.ecr.us-east-1.amazonaws.com/econstruction-auth:latest
           ports:
             - containerPort: 6060
+          env:
+            - name: ASPNETCORE_URLS
+              value: 'http://+:6060'

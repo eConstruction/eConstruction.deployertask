@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: econstruction-notification-pod
+  labels:
+    app: econstruction-notification
+spec:
+  containers:
+    - name: econstruction-notification
+      image: 127041487502.dkr.ecr.us-east-1.amazonaws.com/econstruction-notification:latest
+      ports:
+        - containerPort: 4040
+      env:
+        - name: ASPNETCORE_URLS
+          value: 'http://+:4040'
