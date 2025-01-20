@@ -12,27 +12,27 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: auth-service
+                name: econstruction-service-auth
                 port:
                   number: 6060
           - path: /api/v1/inventory(/|$)(.*)
             pathType: Prefix
             backend:
               service:
-                name: inventory-service
+                name: econstruction-inventory-service
                 port:
                   number: 7070
           - path: /api/v1/orders(/|$)(.*)
             pathType: Prefix
             backend:
               service:
-                name: order-service
+                name: econstruction-order-service
                 port:
                   number: 5050
           - path: /api/v1/notifications(/|$)(.*)
             pathType: Prefix
             backend:
               service:
-                name: notification-service
+                name: econstruction-notification-service
                 port:
                   number: 4040
