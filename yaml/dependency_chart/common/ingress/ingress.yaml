@@ -40,3 +40,10 @@ spec:
                 name: econstruction-notification-service
                 port:
                   number: 4040
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: angular-app-service
+                port:
+                  number: 80
