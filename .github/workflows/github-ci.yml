@@ -23,9 +23,9 @@ jobs:
       run: |
         aws eks update-kubeconfig --name ${{ vars.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
 
-    - name: Output kubeconfig
+    - name: Verify AWS CLI Access and Token Generation
       run: |
-        cat $HOME/.kube/config
+        aws eks get-token --cluster-name ${{ vars.EKS_CLUSTER_NAME }}
 
     - name: Test Kubernetes access
       run: |
