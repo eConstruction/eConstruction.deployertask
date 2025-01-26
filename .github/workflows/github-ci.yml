@@ -19,20 +19,20 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
         aws-region: us-east-1
 
-    - name: Set up Kubeconfig
-      run: |
-        aws eks update-kubeconfig --name ${{ vars.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
+    # - name: Set up Kubeconfig
+    #   run: |
+    #     aws eks update-kubeconfig --name ${{ vars.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
 
-    - name: Verify AWS CLI Access and Token Generation
-      run: |
-        aws eks get-token --cluster-name ${{ vars.EKS_CLUSTER_NAME }}
+    # - name: Verify AWS CLI Access and Token Generation
+    #   run: |
+    #     aws eks get-token --cluster-name ${{ vars.EKS_CLUSTER_NAME }}
 
-    - name: Test Kubernetes access
-      run: |
-        kubectl get namespaces
+    # - name: Test Kubernetes access
+    #   run: |
+    #     kubectl get namespaces
 
-    - name: Update Kubernetes Docker registry secret
-      run: |
-        kubectl delete secret --ignore-not-found=true eks-secrets
-        kubectl create secret generic eks-secrets \
-          --from-literal=eksurl=${{ vars.DOCKER_SERVER_URL }}
+    # - name: Update Kubernetes Docker registry secret
+    #   run: |
+    #     kubectl delete secret --ignore-not-found=true eks-secrets
+    #     kubectl create secret generic eks-secrets \
+    #       --from-literal=eksurl=${{ vars.DOCKER_SERVER_URL }}
