@@ -23,6 +23,10 @@ jobs:
       run: |
         aws eks update-kubeconfig --name ${{ vars.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
 
+    - name: Output kubeconfig
+      run: |
+        cat $HOME/.kube/config
+
     - name: Test Kubernetes access
       run: |
         kubectl get namespaces
