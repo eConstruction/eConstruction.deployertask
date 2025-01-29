@@ -14,22 +14,8 @@ metadata:
     alb.ingress.kubernetes.io/healthcheck-timeout-seconds: '5'
     alb.ingress.kubernetes.io/success-codes: '200'
     alb.ingress.kubernetes.io/healthy-threshold-count: '2'
-    # alb.ingress.kubernetes.io/unhealthy-threshold-count: '2'
-    # {{- if .Values.WAF_WACL_ARN }}
-    # alb.ingress.kubernetes.io/wafv2-acl-arn: {{ .Values.WAF_WACL_ARN }}
-    # {{- end }}
-    ## delete protections for alb
     alb.ingress.kubernetes.io/load-balancer-attributes: deletion_protection.enabled=false
-    ## SSL Settings
-    # alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'  #{"HTTPS":443}, 
-    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'  #{"HTTPS":443}, 
-    # make sure you update your certificate arn over here
-    # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-1:590183897097:certificate/1fe5c0f5-7fa4-4ef5-8050-e27d7dacca16,arn:aws:acm:ap-southeast-1:590183897097:certificate/e625c2de-9a20-42d5-a34a-f704af5059cc,arn:aws:acm:ap-southeast-1:590183897097:certificate/f161c28d-2644-4425-be74-e25e596bee5b,arn:aws:acm:ap-southeast-1:590183897097:certificate/7fd5abd6-52ce-430b-9d95-a70700f24054,arn:aws:acm:ap-southeast-1:590183897097:certificate/a52c3e22-2a35-4bff-816d-172cb8821d89,arn:aws:acm:ap-southeast-1:590183897097:certificate/6f608940-0dd1-4e66-b97a-34a5aa892d5c,arn:aws:acm:ap-southeast-1:590183897097:certificate/fd6f96d5-a00d-41b7-9fd0-27511818487c
-    # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-1:822125423203:certificate/e5574a87-d402-4f3e-9797-7afb14f384f8,arn:aws:acm:ap-southeast-1:822125423203:certificate/ed0d4644-213d-4b43-94ca-44b2bceac338,arn:aws:acm:ap-southeast-1:822125423203:certificate/2a681af4-93ec-41aa-816f-a34523559771
-    # alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:ap-southeast-1:822125423203:certificate/5f947585-7e51-4454-b41a-04ef33dcef74,arn:aws:acm:ap-southeast-1:822125423203:certificate/66ab9e51-e53f-4e43-b27a-11dd1694b312,arn:aws:acm:ap-southeast-1:822125423203:certificate/6f18c4cd-ede8-4515-a5c6-7200ea100e6c # make sure you update your certificate arn over here
-    # alb.ingress.kubernetes.io/ssl-policy: ELBSecurityPolicy-TLS13-1-2-2021-06 #Optional (Picks default if not used)
-    # redirect all HTTP to HTTPS
-   # alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}]'
 spec:
   rules:
     - http:
