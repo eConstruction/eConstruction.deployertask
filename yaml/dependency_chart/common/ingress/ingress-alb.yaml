@@ -20,28 +20,28 @@ spec:
   rules:
     - http:
         paths:
-          - path: /api/v1/auth(/|$)(.*)
+          - path: /api/v1/auth/
             pathType: Prefix
             backend:
               service:
                 name: econstruction-service-auth
                 port:
                   number: 6060
-          - path: /api/v1/inventory(/|$)(.*)
+          - path: /api/v1/inventory/
             pathType: Prefix
             backend:
               service:
                 name: econstruction-inventory-service
                 port:
                   number: 7070
-          - path: /api/v1/orders(/|$)(.*)
+          - path: /api/v1/orders/
             pathType: Prefix
             backend:
               service:
                 name: econstruction-order-service
                 port:
                   number: 5050
-          - path: /api/v1/notifications(/|$)(.*)
+          - path: /api/v1/notifications/
             pathType: Prefix
             backend:
               service:
