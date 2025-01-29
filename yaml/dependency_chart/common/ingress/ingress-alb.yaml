@@ -8,7 +8,7 @@ metadata:
     alb.ingress.kubernetes.io/scheme: internet-facing
     # Health Check Settings
     alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
-    alb.ingress.kubernetes.io/healthcheck-port: '80'
+    # alb.ingress.kubernetes.io/healthcheck-port: '80'
   #  alb.ingress.kubernetes.io/healthcheck-port: 30000 # Make sure you add the NodePort over here
     alb.ingress.kubernetes.io/healthcheck-path: /healthz # Put the path of readiness probe over here
     alb.ingress.kubernetes.io/healthcheck-interval-seconds: '15'
@@ -49,10 +49,10 @@ spec:
                 name: econstruction-notification-service
                 port:
                   number: 4040
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: angular-app-service
-                port:
-                  number: 80
+          # - path: /
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: angular-app-service
+          #       port:
+          #         number: 80
